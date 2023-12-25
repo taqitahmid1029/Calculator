@@ -9,6 +9,25 @@ body {
     background-color: #00100B;
 }
 
+header {
+    background-color: #2D5D7B;
+    padding: 10px;
+}
+
+header > h2 {
+    text-align: center;
+    line-height: 80px;
+    font-size: 2.5rem;
+    color: whitesmoke;
+}
+
+header > p {
+    text-align: center;
+    color: whitesmoke;
+    font-size: 18px;
+    padding: 10px;
+}
+
 .calc-container {
     margin: 30px;
     padding: 20px;
