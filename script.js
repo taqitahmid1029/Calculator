@@ -11,17 +11,18 @@ let oparand2 = ``;
 let oparator1 = ``;
 let equation = ``;
 let isOparatorClicked = false;
-let clickedOparator;
+let clickedOparator = '';
 
 // functions for oparator
 for (let oparator of calcOparators) {
     oparator.addEventListener('click', () => {
+        // changing the bg color of clicked oparator
         clickedOparator = oparator;
         clickedOparator.style.backgroundColor = 'wheat';
 
         // starting new calculation
         if (!isOparatorClicked) {
-            oparator1 = oparator.innerText;
+            oparator1 = oparator.value;
             isOparatorClicked = true;
         }
 
@@ -31,12 +32,12 @@ for (let oparator of calcOparators) {
             oparand2 = ``;
             oparator1 = ``;
             calcDisplay.innerText = oparand1;
-            oparator1 = oparator.innerText;
+            oparator1 = oparator.value;
         }
 
         // fixing a bug for oparand1
         else if (oparand2 === ``) {
-            oparator1 = oparator.innerText;
+            oparator1 = oparator.value;
         }
     })
 }
@@ -46,17 +47,20 @@ for (let number of calcNumbers) {
     number.addEventListener('click', () => {
         // after clicking oparator
         if (isOparatorClicked) {
-            oparand2 += number.innerText;
+            oparand2 += number.value;
             calcDisplay.innerText = oparand2;
         }
 
         // before clicking oparator
         else {
-            oparand1 += number.innerText;
+            oparand1 += number.value;
             calcDisplay.innerText = oparand1;
         }
 
-        clickedOparator.style.backgroundColor = '#FFC100';
+        // changing the bg color of clicked oparator
+        if (clickedOparator !== '') {
+            clickedOparator.style.backgroundColor = '#FFC100';
+        }
     });
 }
 
